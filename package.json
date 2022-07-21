@@ -1,5 +1,5 @@
 {
-  "name": "myflix",
+  "name": "yes",
   "version": "1.0.0",
   "description": "Movie_api that will return required movies to the user upon demand",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Timtam969/MyFlix.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Timothy Losper",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Timtam969/MyFlix/issues"
