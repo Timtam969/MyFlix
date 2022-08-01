@@ -1,16 +1,275 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    /> -->
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <title>Documentation</title>
   </head>
+
   <body>
-    <h1>Documentation Page</h1>
-    <p>This site will be used to search for movies.</p>
-    <p>
-      Once the user searches for specific movies or genres, these will be loaded
-      and the user can view these at will.
-    </p>
+    <div class="container">
+      <div class="header1">My Flix</div>
+      <div class="header2">Application of the Site
+      <br/>
+      <br/>
+      <p>
+        The site will be able to allow users to complete a few steps whilst they are enjoying the site.
+        These include: <br/>
+        • Signing up to the Site, <br/>
+        • Editing personal data incuding favourite movies, <br/>
+        • Deleting their accounts, <br/>
+        • Searching for movies and additional information that they require from the substancial data base. <br/>
+      </p>
+    </div>
+
+    <div class="container1">
+      <table class="table">
+        <thead class="table-primary">
+          <tr>
+            <th>Description of Endpoint</th>
+            <th>Endpoint URL</th>
+            <th>Method Type</th>
+            <th>Format of Data in Request</th>
+            <th>Format of Data in Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Search for all movies in the database</td>
+            <td>http://localhost:8080/movies</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>The server will return a detailed list of all movies in the database</td>
+          </tr>
+
+          <tr>
+            <td>User Registration</td>
+            <td>http://localhost:8080/users/</td>
+            <td>POST</td>
+            <td>
+              The User will add the following Json code:
+              <br/>
+              <code class="text-primary">
+                { name: "Richard Garret",<br/>
+                  favoriteMovies: ["War Dogs"] }<br/>
+              </code>
+            </td>
+            <td>
+              The server will store the information and return a response as follows: <br/>
+              You will notice that a unique id has been added to the new user. <br/>
+              <code class="text-primary">
+                { "name": "Richard Garret",<br/>
+                  "favoriteMovies":["War Dogs"] },<br/>
+                  "id": "5e4d3669-aee6-4aa4-96ca-d78750ae2912"<br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Editting username.
+            </td>
+            <td>/users/:id</td>
+            <td>PUT</td>
+            <td>
+              The User will add the following Json code:
+              <br/>
+              <code class="text-primary">
+                { "name": "Richard Warrick Garret", <br/>
+                  "favoriteMovies": ["War Dogs"] } <br/>
+              </code>
+            </td>
+            <td>
+              The server will change the name of the user and then additionally produce the following as proof of change:
+              <br/>
+              <code class="text-primary">
+              { "id": 2,  <br/>
+                "name": "Richard Warrick Garret", <br/>
+                "favoriteMovies": ["War Dogs"] } <br/>
+            </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Adding favorite movies.
+            </td>
+            <td>http://localhost:8080/users/:id/:movieTitle</td>
+            <td>POST</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/users/1/Avatar
+              </code>
+            </td>
+            <td>
+              The server will add information and then return the following statement:<br/>
+              <code class="text-primary">
+                Avatar has been added to user 1's array<br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Removing favorite movies.
+            </td>
+            <td>http://localhost:8080/users/:id/:movieTitle</td>
+            <td>DELETE</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/users/1/Avatar
+              </code>
+            </td>
+            <td>
+              The server will add information and the then return the following statement:<br/>
+              <code class="text-primary">
+                Avatar has been removed from user 1's array<br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Removing account.
+            </td>
+            <td>http://localhost:8080/users/:id</td>
+            <td>DELETE</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/users/1
+              </code>
+            </td>
+            <td>
+              The server will delete the account and return the following confirmation:<br/>
+              <code class="text-primary">
+                User 1 account has been closed <br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Specific movie search</td>
+            <td>http://localhost:8080/movies/:title</td>
+            <td>GET</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/movies/Avatar
+              </code>
+              </td>
+            <td>
+              The server will return the full Json information on a movie that has been searched: <br/>
+              <code class="text-primary">
+                  { "title": "Avatar", <br/>
+                    "Description": "In the 22nd century, a paraplegic Marine is dispatched </br>
+                     to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.", <br />
+                    "genre": { "name": "Action", <br/>
+                      "Description": "Action films are a film genre where action sequences, </br>
+                       such as fighting, stunts, car chases or explosions, take precedence </br>
+                       over elements like characterization or complex plotting. The action </br>
+                        typically involves individual efforts on the part of the hero, </br>
+                        in contrast with most war films. The genre is closely linked with </br>
+                         the thriller and adventure film genres." },<br/>
+                    "director": { "name": "James Cameron", <br/>
+                      "bio": "James Cameron was born in Kapuskasing, Ontario, Canada, </br>
+                      on August 16, 1954. He moved to the USA in 1971. The son of an engineer, he majored in physics at California State University but, after graduating, drove a truck to support his screen-writing ambition. He landed his first professional film job as art director, miniature-set builder, and process-projection supervisor on Roger Corman's Battle </br>
+                       Beyond the Stars (1980) and debuted as a director with Piranha Part Two: The Spawning (1981) the following year. In 1984, he wrote and directed </br>
+                        The Terminator (1984), a futuristic action-thriller starring Arnold Schwarzenegger, Michael Biehn, and Linda Hamilton. It was a huge success. After this came a string of successful science-fiction action films such as Aliens (1986) and Terminator 2: Judgment Day (1991). </br>
+                         Cameron is now one of the most sought-after directors in Hollywood. </br>
+                         He was formerly married to producer Gale Anne Hurd, who produced several of his films. </br>
+                          He married Kathryn Bigelow in 1989.",
+                      <br/>
+                      "birth": 1954 },<br/>
+                    "image": "https://www.themoviedb.org/t/p/original/pgjs6VwqKa9COml98tqMGjIkoJG.jpg", <br/>
+                    "featured": false }<br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Movie genre search</td>
+            <td>http://localhost:8080/movies/genre/:genreName</td>
+            <td>GET</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/movies/genre/Drama</td>
+              </code>
+            <td>
+              The server will return and display the following information in a Json format: <br />
+              <code class="text-primary">
+                { "name": "Drama", <br/>
+                  "Description": "Drama Films are serious presentations or stories with settings or life situations that portray realistic characters in conflict with either themselves, others, or forces of nature. A dramatic film shows us human beings at their best, their worst, and everything in-between. Each of the types of subject-matter themes have various kinds of dramatic plots. Dramatic films are probably the largest film genre because they include a broad spectrum of films." }  <br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Director search</td>
+            <td>http://localhost:8080/movies/director/:directorName</td>
+            <td>GET</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/movies/director/Peter%20Jackson
+              </code>
+            <td>
+              The servere will return the Directos detailed information with the following Json code:<br/>
+              <code class="text-primary">
+                { "name": "Peter Jackson", <br/>
+                  "bio": "Born on October 31, 1961, in New Zeland, Peter Jackson started his prolific career as a child, creating short films with a 8-mm movie camera. Without any formal training, Jackson has directed a number of successful films ranging across all genres. He is most well-known for his film adaptation of J.R.R. Tolkien's Lord of the Rings trilogy, which has won numerous awards. He stayed with the Tolkien fantasy brand when The Hobbit film series was released.", <br/>
+                  "birth": 1961 }<br/>
+              </code>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    </br>
+    <div class="container2">
+      <table class="table2">
+        <thead class="table-primary2">
+          <tr>
+            <th scope="col">Status Codes:</th>
+            <th scope="col">Description of the Status Code used:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Code 200</td>
+            <td>200 OK </br>
+              The request succeeded. The result meaning of "success" depends on the HTTP method:<br/>
+              GET: The resource has been fetched and transmitted in the message body.<br/>
+              HEAD: The representation headers are included in the response without any message body.<br/>
+              PUT or POST: The resource describing the result of the action is transmitted in the message body.<br/>
+              </td>
+          </tr>
+
+          <tr>
+            <td>Code 201</td>
+            <td>201 Created<br/>
+              The request succeeded, and a new resource was created as a result. <br/>
+              This is typically the response sent after POST requests, or some PUT requests.<br/>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Code 400</td>
+            <td>400 Bad Request<br/>
+              The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).<br/>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   </body>
 </html>
