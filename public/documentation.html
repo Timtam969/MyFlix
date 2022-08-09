@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     /> -->
-    <link rel="stylesheet" href="style.css" type="text/css" />
+
     <title>Documentation</title>
   </head>
 
@@ -48,111 +49,6 @@
             <td>GET</td>
             <td>None</td>
             <td>The server will return a detailed list of all movies in the database</td>
-          </tr>
-
-          <tr>
-            <td>User Registration</td>
-            <td>http://localhost:8080/users/</td>
-            <td>POST</td>
-            <td>
-              The User will add the following Json code:
-              <br/>
-              <code class="text-primary">
-                { name: "Richard Garret",<br/>
-                  favoriteMovies: ["War Dogs"] }<br/>
-              </code>
-            </td>
-            <td>
-              The server will store the information and return a response as follows: <br/>
-              You will notice that a unique id has been added to the new user. <br/>
-              <code class="text-primary">
-                { "name": "Richard Garret",<br/>
-                  "favoriteMovies":["War Dogs"] },<br/>
-                  "id": "5e4d3669-aee6-4aa4-96ca-d78750ae2912"<br/>
-              </code>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              Editting username.
-            </td>
-            <td>/users/:id</td>
-            <td>PUT</td>
-            <td>
-              The User will add the following Json code:
-              <br/>
-              <code class="text-primary">
-                { "name": "Richard Warrick Garret", <br/>
-                  "favoriteMovies": ["War Dogs"] } <br/>
-              </code>
-            </td>
-            <td>
-              The server will change the name of the user and then additionally produce the following as proof of change:
-              <br/>
-              <code class="text-primary">
-              { "id": 2,  <br/>
-                "name": "Richard Warrick Garret", <br/>
-                "favoriteMovies": ["War Dogs"] } <br/>
-            </code>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              Adding favorite movies.
-            </td>
-            <td>http://localhost:8080/users/:id/:movieTitle</td>
-            <td>POST</td>
-            <td>
-              <code class="text-primary">
-                http://localhost:8080/users/1/Avatar
-              </code>
-            </td>
-            <td>
-              The server will add information and then return the following statement:<br/>
-              <code class="text-primary">
-                Avatar has been added to user 1's array<br/>
-              </code>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              Removing favorite movies.
-            </td>
-            <td>http://localhost:8080/users/:id/:movieTitle</td>
-            <td>DELETE</td>
-            <td>
-              <code class="text-primary">
-                http://localhost:8080/users/1/Avatar
-              </code>
-            </td>
-            <td>
-              The server will add information and the then return the following statement:<br/>
-              <code class="text-primary">
-                Avatar has been removed from user 1's array<br/>
-              </code>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              Removing account.
-            </td>
-            <td>http://localhost:8080/users/:id</td>
-            <td>DELETE</td>
-            <td>
-              <code class="text-primary">
-                http://localhost:8080/users/1
-              </code>
-            </td>
-            <td>
-              The server will delete the account and return the following confirmation:<br/>
-              <code class="text-primary">
-                User 1 account has been closed <br/>
-              </code>
-            </td>
           </tr>
 
           <tr>
@@ -195,14 +91,14 @@
 
           <tr>
             <td>Movie genre search</td>
-            <td>http://localhost:8080/movies/genre/:genreName</td>
+            <td>http://localhost:8080/movies/genre/:Name</td>
             <td>GET</td>
             <td>
               <code class="text-primary">
                 http://localhost:8080/movies/genre/Drama</td>
               </code>
             <td>
-              The server will return and display the following information in a Json format: <br />
+              The server will return and display the following information in a Json format: <br/>
               <code class="text-primary">
                 { "name": "Drama", <br/>
                   "Description": "Drama Films are serious presentations or stories with settings or life situations that portray realistic characters in conflict with either themselves, others, or forces of nature. A dramatic film shows us human beings at their best, their worst, and everything in-between. Each of the types of subject-matter themes have various kinds of dramatic plots. Dramatic films are probably the largest film genre because they include a broad spectrum of films." }  <br/>
@@ -212,7 +108,7 @@
 
           <tr>
             <td>Director search</td>
-            <td>http://localhost:8080/movies/director/:directorName</td>
+            <td>http://localhost:8080/movies/director/:Name</td>
             <td>GET</td>
             <td>
               <code class="text-primary">
@@ -228,6 +124,163 @@
             </td>
           </tr>
 
+          <tr>
+            <td>User Registration</td>
+            <td>http://localhost:8080/users/</td>
+            <td>POST</td>
+            <td>
+              The User will add the following Json code:
+              <br/>
+              <code class="text-primary">
+                { "Name": "Darren Mitchell", <br/>
+                  "Password": "slkDFHJÄEOPHJF", <br/>
+                  "Email": "DarrenMitchell@gmail.com", <br/>
+                  "Birthday": "1974.04.23" } <br/>
+              </code>
+            </td>
+            <td>
+              The server will store the information and return a response as follows: <br/>
+              You will notice that a unique id has been added to the new user. <br/>
+              <code class="text-primary">
+                { "_id": "62f23488287aa334e5d8949e", <br/>
+                  "Name": "Darren Mitchell", <br/>
+                  "Password": "slkDFHJÄEOPHJF", <br/>
+                  "Email": "DarrenMitchell@gmail.com", <br/>
+                  "Birthday": "1974-04-22T23:00:00.000Z", <br/>
+                  "FavoriteMovies": [], <br/>
+                  "__v": 0 } <br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Editing user information.
+            </td>
+            <td>/users/:Name</td>
+            <td>PUT</td>
+            <td>
+              The User will add the following Json code:
+              <br/>
+              <code class="text-primary">
+                { "Name": "Darren Diver Mitchell", <br/>
+                  "Password": "slkDFHJÄEOPHJF", <br/>
+                  "Email": "DarrenMitchell@gmail.com", <br/>
+                  "Birthday": "1974.04.23" } <br/>
+              </code>
+            </td>
+            <td>
+              The server will change the user informaiton and then additionally produce the following as proof of change:
+              <br/>
+              <code class="text-primary">
+                { "_id": "62f23488287aa334e5d8949e", <br/>
+                  "Name": "Darren Diver Mitchell", <br/>
+                  "Password": "slkDFHJÄEOPHJF", <br/>
+                  "Email": "DarrenMitchell@gmail.com", <br/>
+                  "Birthday": "1974-04-22T23:00:00.000Z", <br/>
+                  "FavoriteMovies": [], <br/>
+                  "__v": 0 } <br/>
+            </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Adding favorite movies.
+            </td>
+            <td>http://localhost:8080/users/:Name/movies/:movieID</td>
+            <td>POST</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/users/Timothy%20Losper/movies/62f10f80651c8ffd2561484d
+              </code>
+            </td>
+            <td>
+              The server will add information and then return the following information as proof:<br/>
+              <code class="text-primary">
+                { "_id": "62f0e83adb65c78efba32177", <br/>
+                  "Name": "Timothy Losper", <br/>
+                  "Password": "dsfkjföknro3nsfd", <br/>
+                  "Email": "tim_losper@yahoo.com", <br/>
+                  "Birthday": "1980-06-20T22:00:00.000Z", <br/>
+                  "FavoriteMovies": [ <br/>
+                    "62f112ee651c8ffd2561484f", <br/>
+                    "62f10f80651c8ffd2561484d"], <br/>
+                  "__v": 0 }<br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Removing favorite movies.
+            </td>
+            <td>http://localhost:8080/users/:Name/movies/:movieID</td>
+            <td>DELETE</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/users/Timothy%20Losper/movies/62f10f80651c8ffd2561484d
+              </code>
+            </td>
+            <td>
+              The server will remove information and then return the following information as proof:<br/>
+              <code class="text-primary">
+                { "_id": "62f0e83adb65c78efba32177", <br/>
+                  "Name": "Timothy Losper", <br/>
+                  "Password": "dsfkjföknro3nsfd", <br/>
+                  "Email": "tim_losper@yahoo.com", <br/>
+                  "Birthday": "1980-06-20T22:00:00.000Z", <br/>
+                  "FavoriteMovies": [ <br/>
+                    "62f112ee651c8ffd2561484f" ], <br/>
+                    "__v": 0 } <br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Search User by name.
+            </td>
+            <td>http://localhost:8080/users/:Name</td>
+            <td>getting</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/users/Timothy%20Losper
+              </code>
+            </td>
+            <td>
+              The server will display the user by name as follows:<br/>
+              <code class="text-primary">
+                { "_id": "62f0e83adb65c78efba32177", <br/>
+                  "Name": "Timothy Losper", <br/>
+                  "Password": "dsfkjföknro3nsfd", <br/>
+                  "Email": "tim_losper@yahoo.com", <br/>
+                  "Birthday": "1980-06-20T22:00:00.000Z", <br/>
+                  "FavoriteMovies": [ <br/>
+                  "62f112ee651c8ffd2561484f"], <br/>
+                  "__v": 0 } <br/>
+              </code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Removing account.
+            </td>
+            <td>http://localhost:8080/users/:Name</td>
+            <td>DELETE</td>
+            <td>
+              <code class="text-primary">
+                http://localhost:8080/users/Darren%20Diver%20Mitchell
+              </code>
+            </td>
+            <td>
+              The server will delete the account and return the following confirmation:<br/>
+              <code class="text-primary">
+                Darren Diver Mitchell was deleted. <br/>
+              </code>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
