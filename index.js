@@ -234,7 +234,7 @@ app.put(
   "/users/:Name",
   [
     check("Name", "Username is required").isLength({ min: 5 }),
-    Check(
+    check(
       "Name",
       "Username contains non alphanumeric characters - not allowed."
     ).isAlphanumeric(),
