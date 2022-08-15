@@ -137,7 +137,7 @@ app.post(
   //or use .isLength({min: 5}) which means
   //minimum value of 5 characters are only allowed
   [
-    check("Username", "Username is required").isLength({ min: 5 }),
+    check("Name", "Username is required").isLength({ min: 5 }),
     check(
       "Name",
       "Username contains non alphanumeric characters - not allowed."
@@ -233,7 +233,7 @@ app.post(
 app.put(
   "/users/:Name",
   [
-    check("Username", "Username is required").isLength({ min: 5 }),
+    check("Name", "Username is required").isLength({ min: 5 }),
     Check(
       "Name",
       "Username contains non alphanumeric characters - not allowed."
