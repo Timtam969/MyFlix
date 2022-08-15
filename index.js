@@ -235,7 +235,7 @@ app.post(
 app.put(
   "/users/:Name",
   [
-    check("Name", "Username is required").isLength({ min: 5 }),
+    check("Name", "Username is required")..not().isEmpty(),
     Check(
       "Name",
       "Username contains non alphanumeric characters - not allowed."
