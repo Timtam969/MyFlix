@@ -130,7 +130,7 @@ app.get(
   Birthday: Date
 }*/
 app.post("/users", [
-  check('Name', 'Username is required')isLength({min:5}),
+  check('Name', 'Username is required').isLength({min:5}),
   Check('Name', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
   check('Password', 'Password is required.').not().isEmpty(),
   check('Email', 'Email does not appear to be valid.').isEmail()
