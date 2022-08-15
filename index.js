@@ -9,7 +9,12 @@ const { check, validationResult } = require('express-validator');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect("mongodb://localhost:27017/test", {
+// mongoose.connect("mongodb://localhost:27017/test", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
+
+mongoose.connect("process.env.CONNECTION_URI", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -177,7 +182,7 @@ app.put(
     if(!errors.isEmpty()) {
       return.status(422).json({errors: errors.array() });
     }
-    
+
     Users.findOneAndUpdate(
       { Name: req.params.Name },
       {
@@ -284,6 +289,7 @@ app.delete(
 );
 
 // listen for requests
-app.listen(8080, () => {
-  console.log("Your app is listening on port 8080.");
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0',() => {
+ console.log('Listening on Port ' + port);
 });
