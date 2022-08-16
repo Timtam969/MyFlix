@@ -30,6 +30,11 @@ mongoose.connect(process.env.CONNECTION_URI, err => {
   console.log("Connected to MongoDB!!!");
 });
 
+const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
+  flags: "a"
+});
+
+app.use(morgan("combined", { stream: accessLogStream }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
