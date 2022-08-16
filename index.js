@@ -75,8 +75,7 @@ app.get("/documentation", (req, res) => {
 
 // Read endpoint: Returns all movies to the user.
 app.get("/movies", (req, res) => {
-  movies
-    .find()
+  Movies.find()
     .then(movies => {
       res.status(200).json(movies);
     })
