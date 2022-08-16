@@ -25,10 +25,13 @@ const Users = Models.User;
 //   }
 // );
 
-mongoose.connect(process.env.CONNECTION_URI, err => {
-  if (err) throw err;
-  console.log("Connected to MongoDB!!!");
-});
+mongoose.connect(
+  "mongodb+srv://myFlixDBadmin:LuisTim2125@myflixdb.chc9quv.mongodb.net/?retryWrites=true&w=majority",
+  err => {
+    if (err) throw err;
+    console.log("Connected to MongoDB!!!");
+  }
+);
 
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
   flags: "a"
