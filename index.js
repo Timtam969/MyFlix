@@ -14,10 +14,13 @@ const Users = Models.User;
 //   useUnifiedTopology: true
 // });
 
-mongoose.connect("process.env.CONNECTION_URI", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+  "mongodb+srv://myFlixDBadmin:LuisTim2125@myflixdb.chc9quv.mongodb.net/?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
