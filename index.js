@@ -14,23 +14,24 @@ const Users = Models.User;
 //   useUnifiedTopology: true
 // });
 
-mongoose.connect(
-  "mongodb+srv://myFlixDBadmin:LuisTim2125@myflixdb.chc9quv.mongodb.net/?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }
-);
+// mongoose.connect(
+//   "mongodb+srv://myFlixDBadmin:LuisTim2125@myflixdb.chc9quv.mongodb.net/?retryWrites=true&w=majority",
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   }
+// );
+
+mongoose.connect(process.env.CONNECTION_URI, err => {
+  if (err) throw err;
+  console.log("Connected to MongoDB!!!");
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require("cors");
-let allowedOrigins = [
-  "http://localhost:8080",
-  "http://testsite.com",
-  "http://heroku.com"
-];
+let allowedOrigins = ["http://localhost:8080", "http://testsite.com"];
 
 app.use(
   cors({
