@@ -81,6 +81,22 @@ app.get(
   }
 );
 
+// Read endpoint: Returns all movies to the user.
+app.get(
+  "/users",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Users.find()
+      .then(users => {
+        res.status(200).json(users);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
+
 // Read endpoint: Returns all movie to the user by title search.
 app.get(
   "/movies/:Title",
