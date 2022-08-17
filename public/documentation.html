@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="public/styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -132,7 +132,7 @@
               The User will add the following Json code:
               <br/>
               <code class="text-primary">
-                { "Name": "Darren Mitchell", <br/>
+                { "Username": "Darren Mitchell", <br/>
                   "Password": "slkDFHJÄEOPHJF", <br/>
                   "Email": "DarrenMitchell@gmail.com", <br/>
                   "Birthday": "1974.04.23" } <br/>
@@ -143,7 +143,7 @@
               You will notice that a unique id has been added to the new user. <br/>
               <code class="text-primary">
                 { "_id": "62f23488287aa334e5d8949e", <br/>
-                  "Name": "Darren Mitchell", <br/>
+                  "Username": "Darren Mitchell", <br/>
                   "Password": "slkDFHJÄEOPHJF", <br/>
                   "Email": "DarrenMitchell@gmail.com", <br/>
                   "Birthday": "1974-04-22T23:00:00.000Z", <br/>
@@ -157,13 +157,13 @@
             <td>
               Editing user information.
             </td>
-            <td>/users/:Name</td>
+            <td>/users/:Username</td>
             <td>PUT</td>
             <td>
               The User will add the following Json code:
               <br/>
               <code class="text-primary">
-                { "Name": "Darren Diver Mitchell", <br/>
+                { "Username": "Darren Diver Mitchell", <br/>
                   "Password": "slkDFHJÄEOPHJF", <br/>
                   "Email": "DarrenMitchell@gmail.com", <br/>
                   "Birthday": "1974.04.23" } <br/>
@@ -174,7 +174,7 @@
               <br/>
               <code class="text-primary">
                 { "_id": "62f23488287aa334e5d8949e", <br/>
-                  "Name": "Darren Diver Mitchell", <br/>
+                  "Username": "Darren Diver Mitchell", <br/>
                   "Password": "slkDFHJÄEOPHJF", <br/>
                   "Email": "DarrenMitchell@gmail.com", <br/>
                   "Birthday": "1974-04-22T23:00:00.000Z", <br/>
@@ -188,7 +188,7 @@
             <td>
               Adding favorite movies.
             </td>
-            <td>http://localhost:8080/users/:Name/movies/:movieID</td>
+            <td>http://localhost:8080/users/:Username/movies/:movieID</td>
             <td>POST</td>
             <td>
               <code class="text-primary">
@@ -199,7 +199,7 @@
               The server will add information and then return the following information as proof:<br/>
               <code class="text-primary">
                 { "_id": "62f0e83adb65c78efba32177", <br/>
-                  "Name": "Timothy Losper", <br/>
+                  "Username": "Timothy Losper", <br/>
                   "Password": "dsfkjföknro3nsfd", <br/>
                   "Email": "tim_losper@yahoo.com", <br/>
                   "Birthday": "1980-06-20T22:00:00.000Z", <br/>
@@ -215,7 +215,7 @@
             <td>
               Removing favorite movies.
             </td>
-            <td>http://localhost:8080/users/:Name/movies/:movieID</td>
+            <td>http://localhost:8080/users/:Username/movies/:movieID</td>
             <td>DELETE</td>
             <td>
               <code class="text-primary">
@@ -226,7 +226,7 @@
               The server will remove information and then return the following information as proof:<br/>
               <code class="text-primary">
                 { "_id": "62f0e83adb65c78efba32177", <br/>
-                  "Name": "Timothy Losper", <br/>
+                  "Username": "Timothy Losper", <br/>
                   "Password": "dsfkjföknro3nsfd", <br/>
                   "Email": "tim_losper@yahoo.com", <br/>
                   "Birthday": "1980-06-20T22:00:00.000Z", <br/>
@@ -239,9 +239,9 @@
 
           <tr>
             <td>
-              Search User by name.
+              Search User by username.
             </td>
-            <td>http://localhost:8080/users/:Name</td>
+            <td>http://localhost:8080/users/:Username</td>
             <td>getting</td>
             <td>
               <code class="text-primary">
@@ -249,10 +249,10 @@
               </code>
             </td>
             <td>
-              The server will display the user by name as follows:<br/>
+              The server will display the user by username as follows:<br/>
               <code class="text-primary">
                 { "_id": "62f0e83adb65c78efba32177", <br/>
-                  "Name": "Timothy Losper", <br/>
+                  "Username": "Timothy Losper", <br/>
                   "Password": "dsfkjföknro3nsfd", <br/>
                   "Email": "tim_losper@yahoo.com", <br/>
                   "Birthday": "1980-06-20T22:00:00.000Z", <br/>
@@ -267,7 +267,7 @@
             <td>
               Removing account.
             </td>
-            <td>http://localhost:8080/users/:Name</td>
+            <td>http://localhost:8080/users/:Username</td>
             <td>DELETE</td>
             <td>
               <code class="text-primary">
