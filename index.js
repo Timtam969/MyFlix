@@ -29,6 +29,7 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + "/public"));
 
 const cors = require("cors");
 // let allowedOrigins = ["http://localhost:8080", "http://testsite.com"];
