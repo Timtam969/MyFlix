@@ -82,7 +82,7 @@ app.get(
   }
 );
 
-// Read endpoint: Returns all movies to the user.
+// Read endpoint: Returns all users.
 app.get(
   "/users",
   passport.authenticate("jwt", { session: false }),
@@ -237,7 +237,7 @@ app.put(
       {
         $set: {
           Username: req.body.Username,
-          Password: req.body.Password,
+          Password: hashedpassword,
           Email: req.body.Email,
           Birthday: req.body.Birthday
         }
