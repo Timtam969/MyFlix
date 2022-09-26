@@ -37,7 +37,7 @@ let allowedOrigins = [
   "http://testsite.com",
   "http://localhost:1234"
 ];
-// const { check, validationResult } = require("express-validator");
+const { check, validationResult } = require("express-validator");
 
 app.use(
   cors({
