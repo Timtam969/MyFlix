@@ -32,8 +32,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 
 const cors = require("cors");
-// let allowedOrigins = ["http://localhost:8080", "http://testsite.com"];
-const { check, validationResult } = require("express-validator");
+let allowedOrigins = [
+  "http://localhost:8080",
+  "http://testsite.com",
+  "http://localhost:1234"
+];
+// const { check, validationResult } = require("express-validator");
 
 app.use(
   cors({
