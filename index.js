@@ -133,7 +133,7 @@ app.delete(
   }
 );
 
-app.post("/movies/:Title", (req, res) => {
+app.put("/movies/:Title", (req, res) => {
   Movies.findOneAndUpdate(
     { Title: req.params.Title },
     {
