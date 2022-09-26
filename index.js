@@ -137,7 +137,7 @@ app.put("/movies/:Title", (req, res) => {
   Movies.findOneAndUpdate(
     { Title: req.params.Title },
     {
-      $push: { Image: req.body.Image }
+      $set: { Image: req.body.Image }
     },
     { new: true }, // This line makes sure that the updated document is returned
     (err, updatedMovies) => {
