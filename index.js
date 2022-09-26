@@ -105,7 +105,7 @@ app.get(
 // Read endpoint: Returns all movie to the user by title search.
 app.get(
   "/movies/:Title",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Movies.findOne({ Title: req.params.Title })
       .then(movie => {
