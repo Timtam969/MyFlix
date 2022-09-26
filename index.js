@@ -118,6 +118,21 @@ app.get(
   }
 );
 
+app.delete(
+  "/movies/:Title",
+  // passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Movies.findOneAndDelete({ Title: req.params.Title })
+      .then(movie => {
+        res.status(200).json(movie);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
+
 // Read endPoint: Returns info of a specific Genre by Genre Name
 app.get(
   "/movies/genre/:Name",
