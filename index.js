@@ -134,7 +134,7 @@ app.delete(
 );
 
 app.post("/movies/:Title", (req, res) => {
-  Users.findOneAndUpdate(
+  Movies.findOneAndUpdate(
     { Title: req.params.Title },
     {
       $push: { Image: req.body.Image }
