@@ -133,24 +133,6 @@ app.delete(
   }
 );
 
-app.put("/movies/:Title", (req, res) => {
-  Movies.findOneAndUpdate(
-    { Title: req.params.Title },
-    {
-      $set: { Image: req.body.Image }
-    },
-    { new: true }, // This line makes sure that the updated document is returned
-    (err, updatedMovies) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send("Error: " + err);
-      } else {
-        res.status(201).json(updatedMovies);
-      }
-    }
-  );
-});
-
 // Read endPoint: Returns info of a specific Genre by Genre Name
 app.get(
   "/movies/genre/:Name",
