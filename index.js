@@ -73,7 +73,7 @@ app.get("/documentation", (req, res) => {
 // Read endpoint: Returns all movies to the user.
 app.get(
   "/movies",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Movies.find()
       .then(movies => {
@@ -89,7 +89,7 @@ app.get(
 // Read endpoint: Returns all users.
 app.get(
   "/users",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Users.find()
       .then(users => {
@@ -105,7 +105,7 @@ app.get(
 // Read endpoint: Returns all movie to the user by title search.
 app.get(
   "/movies/:Title",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Movies.findOne({ Title: req.params.Title })
       .then(movie => {
@@ -120,7 +120,7 @@ app.get(
 
 app.delete(
   "/movies/:Title",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Movies.findOneAndDelete({ Title: req.params.Title })
       .then(movie => {
@@ -245,7 +245,7 @@ app.put(
   ],
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    let hashedpassword = Users.hashPassword(req.body.Password);
+    let hashedPassword = Users.hashPassword(req.body.Password);
     let errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
@@ -257,8 +257,7 @@ app.put(
         $set: {
           Username: req.body.Username,
           Password: hashedpassword,
-          Email: req.body.Email,
-          Birthday: req.body.Birthday
+          Email: req.body.Email
         }
       },
       { new: true }, // This line makes sure that the updated document is returned
