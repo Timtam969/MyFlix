@@ -41,7 +41,7 @@ let allowedOrigins = [
 const { check, validationResult } = require("express-validator");
 
 app.use(
-  rees.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200/');
+  rees.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
   cors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
